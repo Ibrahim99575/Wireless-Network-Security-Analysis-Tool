@@ -74,6 +74,8 @@ This project introduces a novel tool for assessing Wi-Fi security, providing an 
 
 ` 
 git clone https://github.com/yourusername/wireless-network-security-tool.git
+`
+`
 cd wireless-network-security-tool
 `
 
@@ -81,7 +83,6 @@ cd wireless-network-security-tool
 
 `
 pip install -r requirements.txt
-
 `
 
 3. Run the tool:
@@ -96,14 +97,11 @@ python main.py
 python main.py
 `
 
-2. Enter Wi-Fi Details:
-  - Input your Wi-Fi SSID and password.
+2. Enter Wi-Fi Details: Input your Wi-Fi SSID and password.
 
-3. Analyze Network:
-  - Click on Analyze to start the security assessment.
+3. Analyze Network: Click on Analyze to start the security assessment.
 
-4. View Results:
-  - The tool will provide a security score and actionable recommendations.
+4. View Results: The tool will provide a security score and actionable recommendations.
 
 ## License
 This project is open-source and available under the <a href="https://github.com/Ibrahim99575/web-drum-play/blob/fd574d3b7ff978c83c95bece92f8c7ba4486b120/LICENSE/">MIT License</a>.
