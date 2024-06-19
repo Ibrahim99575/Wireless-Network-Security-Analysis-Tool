@@ -38,7 +38,7 @@ Wireless networks face escalating complexity and evolving cyber threats, making 
 ## Proposed System
 ### System Diagram
 
-<img src="https://github.com/Ibrahim99575/Wireless-Network-Security-Analysis-Tool/blob/a0172ae5859c2ff7b1863f5ad51b0597cfb1d8ec/block_diagram_pages-to-jpg-0001.jpg"/>
+<img src="https://github.com/Ibrahim99575/Wireless-Network-Security-Analysis-Tool/blob/a0172ae5859c2ff7b1863f5ad51b0597cfb1d8ec/block_diagram_pages-to-jpg-0001.jpg" width = 200px />
 
 ### Modules
 - #### Protocol Analysis Module: Analyzes wireless network protocols and assesses their security. Provides a protocol score based on the analysis.
@@ -53,7 +53,7 @@ Wireless networks face escalating complexity and evolving cyber threats, making 
 
 ## Implementation
 The tool is implemented in Python and utilizes several libraries, including math, collections.Counter, and a generative AI module for advanced analysis. The password analysis algorithm calculates entropy and checks against a dictionary of common passwords to determine password strength.
-<img src="https://github.com/Ibrahim99575/Wireless-Network-Security-Analysis-Tool/blob/477bcb73b20e51bbbe5ddab14b7869a08a3674f2/output_interface.jpg"/>
+<img src="https://github.com/Ibrahim99575/Wireless-Network-Security-Analysis-Tool/blob/477bcb73b20e51bbbe5ddab14b7869a08a3674f2/output_interface.jpg" width = 200px/>
 
 
 ## Results & Discussions
@@ -103,7 +103,7 @@ python app.py
 4. View Results: The tool will provide a security score and actionable recommendations.
 
 ## License
-This project is open-source and available under the <a href="https://github.com/Ibrahim99575/web-drum-play/blob/fd574d3b7ff978c83c95bece92f8c7ba4486b120/LICENSE/">MIT License</a>.
+This project is open-source and available under the <a href="https://github.com/Ibrahim99575/Wireless-Network-Security-Analysis-Tool/blob/c4b8ccaedc46bde6223f3431cba9ea4cd60ef9b5/LICENSE">MIT License</a>.
 For more details and to access the tool, please visit the project repository.
 
 If you have any questions or need further assistance, feel free to contact the project maintainer, Ibrahim Ali, at ibrahim.ali.99575@gmail.com.
