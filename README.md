@@ -38,13 +38,12 @@ Wireless networks face escalating complexity and evolving cyber threats, making 
 ## Proposed System
 ### System Diagram
 
+<img src="https://github.com/Ibrahim99575/web-drum-play/blob/bc39e933259468ad10ab23f96306e046926f3ba4/UI.png"/>
 
 ### Modules
-- #### Protocol Analysis Module: Analyzes wireless network protocols and assesses their security.
-Provides a protocol score based on the analysis.
+- #### Protocol Analysis Module: Analyzes wireless network protocols and assesses their security. Provides a protocol score based on the analysis.
 
-- #### Firewall Detection Module: Detects the presence and effectiveness of network firewalls.
-Assigns a firewall score based on the findings.
+- #### Firewall Detection Module: Detects the presence and effectiveness of network firewalls. Assigns a firewall score based on the findings.
 
 - #### Password Analysis Module: Evaluates the strength of Wi-Fi passwords.Uses entropy calculation and common password checks to determine a password score.
 
@@ -72,12 +71,10 @@ This project introduces a novel tool for assessing Wi-Fi security, providing an 
 ### Steps
 1. Clone the repository:
 
-` 
+``` 
 git clone https://github.com/yourusername/wireless-network-security-tool.git
-`
-`
 cd wireless-network-security-tool
-`
+```
 
 2. Install required dependencies:
 
