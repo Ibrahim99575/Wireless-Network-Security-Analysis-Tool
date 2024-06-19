@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphone Interface</title>
+    <style>
+        /* Style for the smartphone container */
+        .smartphone-container {
+            position: relative;
+            width: 350px;
+            height: 660px;
+            background-color: rgb(242, 242, 242);
+            border: 2px solid black;
+            border-radius: 20px;
+            margin: 30px auto;
+
+        }
+
+        /* .top-bar{
+            display: inline;
+        } */
+
+        .signal-strength{
+            position: relative;
+            top: 18px;
+            left: 42px;
+            float: left;
+            clear: right;
+            font-weight: bold;
+        }
+        /* Style for the WiFi symbol */
+        .wifi-symbol {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+            float: left;
+        }
+        /* Style for the device name */
+        .device-name {
+            text-align: center;
+            margin-top: 2%;
+            font-weight: bold;
+        }
+        /* Style for the round progress bar */
+        .progress-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .progress-circle {
+            width: 100px;
+            height: 100px;
+            background-color: #f3f3f3;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+        }
+        .progress-circle .progress-bar {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            clip: rect(0, 50px, 100px, 0);
+        }
+        .progress-circle .progress-bar.fill {
+            clip: rect(0, 100px, 100px, 50px);
+        }
+        .progress-circle .progress-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .blurred {
+            filter: blur(4px);
+        }
+
+        /* Style for the text input */
+        .text-input {
+            width: 200px;
+            height: 30px;
+            border-radius: 15px;
+            border: 2px solid #ccc;
+            margin: 20px auto;
+            display: block;
+            text-align: center;
+        }
+        /* Style for the button */
+        .button {
+            width: 150px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+        /* Style for the toggle buttons */
+        .toggle-container {
+            text-align: center;
+        }
+        .toggle {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .toggle-label {
+            display: inline-block;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        .toggle input[type="checkbox"] {
+            display: none;
+        }
+        .toggle input[type="checkbox"] + label {
+            display: block;
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 2px solid #ccc;
+            border-radius: 15px;
+            cursor: pointer;
+            position: relative;
+        }
+        .toggle input[type="checkbox"]:checked + label {
+            background-color: #007bff;
+            color: white;
+        }
+        .toggle input[type="checkbox"] + label::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            transition: all 0.3s;
+        }
+        .toggle input[type="checkbox"]:checked + label::before {
+            left: calc(100% - 25px);
+        }
+
+        .recommendations-section {
+            margin-top: 20px;
+            margin-left: 3%;
+            margin-right: 3%;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+        .recommendations-section {
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid rgb(242, 242, 242);;
+            border-radius: 10px; /* Rounded border */
+            animation: rotateColors 6s linear infinite alternate; /* Animation for rotating colors */
+        }
+
+        /* Keyframes for rotating colors */
+        @keyframes rotateColors {
+            0% {
+                border-color: rgb(255, 255, 255); /* Red */
+            }
+            25% {
+                border-color: rgb(228, 228, 228); /* Green */
+            }
+            50% {
+                border-color: rgb(194, 194, 194); /* Blue */
+            }
+            75% {
+                border-color: rgb(176, 176, 176); /* Yellow */
+            }
+            100% {
+                border-color: rgb(148, 148, 148); /* Magenta */
+            }
+        }
+
+        /* Styles for recommendation items */
+        .recommendation-item {
+            margin-bottom: 5px;
+        }
+        .recommendation-item .right-sign {
+            color: green;
+            margin-right: 10px;
+        }
+        .recommendation-item .warning-sign {
+            color: orange;
+            margin-right: 10px;
+        }
+        .power-sign {
+            color: yellow;
+        }
+        .recommendation-item .cross-sign {
+            color: red;
+            margin-right: 10px;
+        }
+
+        .recommendations-section h3 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .recommendation-item {
+            margin-bottom: 5px;
+        }
+        .recommendation-item .right-sign {
+            color: green;
+            margin-right: 10px;
+        }
+        .recommendation-item .cross-sign {
+            color: red;
+            margin-right: 10px;
+        }
+
+        .hr-line{
+            margin-top: 15%;
+            position: relative;
+
+        }
+
+        hr{
+            color:black;
+            border-width: 2px;
+        }
+
+        .progress-circle {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border: 4px solid transparent;
+            border-radius: 50%;
+        }
+
+        .progress-bar {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 4px solid transparent;
+            border-radius: 50%;
+            clip: rect(0, 50px, 100px, 0);
+        }
+
+
+
+        /* Update border color based on progress label */
+        .progress-label.red {
+            border-color: red;
+        }
+
+        .progress-label.orange {
+            border-color: orange;
+        }
+
+        .progress-label.yellow {
+            border-color: yellow;
+        }
+
+        .progress-label.green {
+            border-color: green;
+        }
+
+        .slide-progress{
+            margin-left: 25%;
+        }
+        /* Styles for the heading */
+        h3 {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333; /* Dark gray color */
+            /* margin-top: 20px; */
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            margin: auto 50px;
+            border: 2px solid #d6d6d6; /* Light gray border bottom */
+            border-radius: 10px;
+            background-color: rgb(212, 211, 211);
+        }
+
+        .recommendations-section{
+            background-color: rgb(224, 224, 224);
+        }
+
+        body {
+            background-color: #2a2c3a;
+            background-image: 
+                radial-gradient(at 47% 33%, hsl(162.00, 77%, 40%) 0, transparent 59%), 
+                radial-gradient(at 82% 65%, hsl(218.18, 54%, 48%) 0, transparent 55%);
+        }
+
+        .svg-background {
+            /* background-position: bottom; */
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="smartphone-container">
+        <div class="top-bar">
+            <div class="wifi-symbol">&#128246;</div>
+            <div class="signal-strength blurred"> 10%</div>
+        </div>
+
+        <div class="hr-line"> <hr> </div>
+        <div class="device-name" id="wifi-name">Not connected</div>
+        
+        <div class="progress-container">
+            <div class="progress-circle">
+                <div class="progress-bar"></div>
+                <div class="progress-label blurred">100%</div>
+            </div>
+        </div>
+
+
+        <div class="slide-progress">
+            <progress id="file" value="0" max="100"></progress>
+        </div>
+
+        <input type="text" id="password-input" class="text-input" placeholder="Enter the Wi-Fi Password">
+        <button id="get-score-btn" class="button">Get Score</button>
+        <div class="toggle-container">
+            <div class="toggle">
+                <input type="checkbox" id="toggle1">
+                <label for="toggle1"></label>
+                <span class="toggle-label">SSID Visible</span>
+            </div>
+            <div class="toggle">
+                <input type="checkbox" id="toggle2">
+                <label for="toggle2"></label>
+                <span class="toggle-label">Router Visible</span>
+            </div>
+        </div>
+
+        <!-- Recommendations section -->
+        <div class="recommendations-section" id="recommendations">
+            <h3>Recommendation</h3>
+        </div>
+    </div>
+    
+    <svg class="svg-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#0099ff" fill-opacity="1" d="M0,256L15,261.3C30,267,60,277,90,240C120,203,150,117,180,90.7C210,64,240,96,270,101.3C300,107,330,85,360,80C390,75,420,85,450,80C480,75,510,53,540,42.7C570,32,600,32,630,64C660,96,690,160,720,154.7C750,149,780,75,810,53.3C840,32,870,64,900,101.3C930,139,960,181,990,202.7C1020,224,1050,224,1080,197.3C1110,171,1140,117,1170,90.7C1200,64,1230,64,1260,58.7C1290,53,1320,43,1350,42.7C1380,43,1410,53,1425,58.7L1440,64L1440,320L1425,320C1410,320,1380,320,1350,320C1320,320,1290,320,1260,320C1230,320,1200,320,1170,320C1140,320,1110,320,1080,320C1050,320,1020,320,990,320C960,320,930,320,900,320C870,320,840,320,810,320C780,320,750,320,720,320C690,320,660,320,630,320C600,320,570,320,540,320C510,320,480,320,450,320C420,320,390,320,360,320C330,320,300,320,270,320C240,320,210,320,180,320C150,320,120,320,90,320C60,320,30,320,15,320L0,320Z"></path>
+    </svg>
+    <script>
+
+        
+        // Function to update progress label and border color
+        function updateProgress(percentage) {
+            var progressLabel = document.querySelector('.progress-label');
+            var progressCircle = document.querySelector('.progress-circle');
+    
+            // Update progress label text
+            progressLabel.textContent = percentage.toFixed(2) + "%";
+    
+            // Remove previous color class
+            progressLabel.classList.remove('red', 'orange', 'yellow', 'green');
+    
+            // Determine border color based on percentage
+            if (percentage>=0 && percentage <= 25) {
+                progressLabel.classList.add('red');
+                progressCircle.style.borderRightColor = 'red';
+            } else if (percentage <= 50) {
+                progressLabel.classList.add('orange');
+                progressCircle.style.borderRightColor = 'orange';
+                progressCircle.style.borderBottomColor = 'orange';
+            } else if (percentage <= 75) {
+                progressLabel.classList.add('yellow');
+                progressCircle.style.borderRightColor = 'yellow';
+                progressCircle.style.borderBottomColor = 'yellow';
+                progressCircle.style.borderLeftColor = 'yellow';
+            } else {
+                progressLabel.classList.add('green');
+                progressCircle.style.borderTopColor = 'green';
+                progressCircle.style.borderRightColor = 'green';
+                progressCircle.style.borderBottomColor = 'green';
+                progressCircle.style.borderLeftColor = 'green';
+            }
+    
+            // Adjust clip for progress bar based on percentage
+            var clipValue = 'rect(0, 50px, 100px, 0)';
+            if (percentage <= 50) {
+                clipValue = 'rect(auto, auto, auto, auto)';
+            }
+            document.querySelector('.progress-bar').style.clip = clipValue;
+        }
+    
+        // Initialize variables ssid and reach with default values
+        var ssid = 0;
+        var reach = 0;
+
+        // Function to update ssid and reach variables based on toggle state
+        function updateVariables() {
+            // Get references to the toggle buttons
+            var toggle1 = document.getElementById('toggle1');
+            var toggle2 = document.getElementById('toggle2');
+
+            // Update ssid and reach based on toggle states
+            ssid = toggle1.checked ? 5 : 0;
+            reach = toggle2.checked ? 5 : 0;
+        }
+
+        // Add event listeners to the toggle buttons to call updateVariables function when they are toggled
+        document.getElementById('toggle1').addEventListener('change', updateVariables);
+        document.getElementById('toggle2').addEventListener('change', updateVariables);
+
+
+        
+        // Function to handle button click
+        function handleButtonClick() {
+            
+            // Reset previous recommendations
+            var recommendationsDiv = document.getElementById("recommendations");
+            recommendationsDiv.innerHTML = '<h3>Recommendations</h3>';
+
+            // Reset progress label text and remove color classes
+            var progressLabel = document.querySelector('.progress-label');
+            progressLabel.textContent = "0%";
+            progressLabel.classList.remove('red', 'orange', 'yellow', 'green');
+
+            // Reset progress circle border color
+            var progressCircle = document.querySelector('.progress-circle');
+            progressCircle.style.borderTopColor = 'transparent';
+            progressCircle.style.borderRightColor = 'transparent';
+            progressCircle.style.borderBottomColor = 'transparent';
+            progressCircle.style.borderLeftColor = 'transparent';
+
+            // Reset clip for progress bar
+            document.querySelector('.progress-bar').style.clip = 'rect(0, 50px, 100px, 0)';
+
+
+            updateProgress(0);
+            var secureScore = 0;
+
+            document.querySelector('.progress-label').classList.remove('blurred');
+            
+            document.querySelector('.signal-strength').classList.remove('blurred');
+
+            // updating the secureScore based on observation Score
+            updateVariables();
+            var observationScore = ssid + reach;
+            secureScore -= observationScore * 0.5;
+            updateProgress(secureScore);
+
+
+            // Make an AJAX request to the Flask endpoint to get the WiFi name
+            var xhrName = new XMLHttpRequest();
+            xhrName.open('GET', '/get_wifi_name', true);
+            xhrName.onreadystatechange = function() {
+                if (xhrName.readyState == XMLHttpRequest.DONE) {
+                    if (xhrName.status == 200) {
+                        // Parse the JSON response and store the WiFi name in a variable
+                        var wifiName = JSON.parse(xhrName.responseText).wifi_name;
+                        wifiName = wifiName + ' connected';
+                        // Update the device name with the received WiFi name
+                        document.querySelector('.device-name').textContent = wifiName;
+                    } else {
+                        console.error('Error getting WiFi name:', xhrName.statusText);
+                    }
+                }
+            };
+            xhrName.send();
+
+            // Make an AJAX request to the Flask endpoint to get the Signal Strength
+            var xhrSignal = new XMLHttpRequest();
+            xhrSignal.open('GET', '/get_wifi_signal_strength', true);
+            xhrSignal.onreadystatechange = function() {
+                if (xhrSignal.readyState == XMLHttpRequest.DONE) {
+                    if (xhrSignal.status == 200) {
+                        // Parse the JSON response and store the signal strength in a variable
+                        var signalStrength = JSON.parse(xhrSignal.responseText).wifi_strength;
+                        // Update the signal strength in the HTML
+                        document.querySelector('.signal-strength').textContent = signalStrength;
+                    } else {
+                        console.error('Error getting WiFi signal strength:', xhrSignal.statusText);
+                    }
+                }
+            };
+            xhrSignal.send();
+
+            // Make an AJAX request to the Flask endpoint to get the isolation score
+
+            var xhrIsolation = new XMLHttpRequest();
+            xhrIsolation.open('GET', '/check_guest_network_isolation', true);
+            xhrIsolation.onreadystatechange = function() {
+                if (xhrIsolation.readyState == XMLHttpRequest.DONE) {
+                    if (xhrIsolation.status == 200) {
+                        // Parse the JSON response and store the signal strength in a variable
+                        var isolation_score = JSON.parse(xhrIsolation.responseText).isolation_score;
+                        secureScore += isolation_score*1.5;
+                        // Update the progress label in the HTML
+                        updateProgress(secureScore);
+
+                        // Function to generate recommendation item based on isolation score
+                        function generateIsolationRecommendation(score) {
+                            var recommendationsDiv = document.getElementById("recommendations");
+                            var itemDiv = document.createElement("div");
+                            itemDiv.className = "recommendation-item";
+
+                            var signSpanRight = document.createElement("span");
+                            signSpanRight.className = "right-sign";
+
+                            var signSpanCross = document.createElement("span");
+                            signSpanCross.className = "cross-sign";
+
+                            // Add the appropriate sign and text based on the isolation score
+                            if (score === 0) {
+                                signSpanCross.innerHTML = "&#10008;"; // Cross sign
+                                itemDiv.appendChild(signSpanCross);
+                                itemDiv.appendChild(document.createTextNode("Network isolation is absent."));
+                            } else if (score === 10) {
+                                signSpanRight.innerHTML = "&#10004;"; // Right sign
+                                itemDiv.appendChild(signSpanRight);
+                                itemDiv.appendChild(document.createTextNode("Congrats! Network isolation present."));
+                            }
+
+                            recommendationsDiv.appendChild(itemDiv);
+                        }
+
+                        // Call the function to generate isolation score recommendation
+                        generateIsolationRecommendation(isolation_score);
+
+
+                    } else {
+                        console.error('Error getting WiFi signal strength:', xhrIsolation.statusText);
+                    }
+                }
+            };
+            xhrIsolation.send();
+
+            // Make an AJAX request to the Flask endpoint to get the protocol score
+            
+            var xhrProtocol = new XMLHttpRequest();
+            xhrProtocol.open('GET', '/get_security_score', true);
+            xhrProtocol.onreadystatechange = function() {
+                if (xhrProtocol.readyState == XMLHttpRequest.DONE) {
+                    if (xhrProtocol.status == 200) {
+                        // Parse the JSON response and store the signal strength in a variable
+                        var protocol_score = JSON.parse(xhrProtocol.responseText).protocol_score;
+                        secureScore += protocol_score * 4;
+                        // Update the progress label in the HTML
+                        updateProgress(secureScore);
+
+                        // Function to generate recommendation item based on protocol score
+                        function generateProtocolScoreRecommendation(score) {
+                            var recommendationsDiv = document.getElementById("recommendations");
+                            var itemDiv = document.createElement("div");
+                            itemDiv.className = "recommendation-item";
+
+                            var signSpanRight = document.createElement("span");
+                            signSpanRight.className = "right-sign";
+
+                            var signSpanWarning = document.createElement("span");
+                            signSpanWarning.className = "warning-sign";
+
+                            var signSpanCross = document.createElement("span");
+                            signSpanCross.className = "cross-sign";
+
+                            // Add the appropriate sign and text based on the protocol score
+                            if (score < 5) {
+                                signSpanCross.innerHTML = "&#10008"; // cross sign
+                                itemDiv.appendChild(signSpanCross);
+                                itemDiv.appendChild(document.createTextNode("Network protocol is outdated."));
+                            } else if (score < 7) {
+                                signSpanWarning.innerHTML = "&#x26A0;"; // Warning sign
+                                itemDiv.appendChild(signSpanWarning);
+                                itemDiv.appendChild(document.createTextNode("Your network protocol is moderately safe."));
+                            } else {
+                                signSpanRight.innerHTML = "&#10004;"; // Right sign
+                                itemDiv.appendChild(signSpanRight);
+                                itemDiv.appendChild(document.createTextNode("Congrats! Your protocol is the latest."));
+                            }
+
+                            recommendationsDiv.appendChild(itemDiv);
+                        }
+
+                        // Call the function to generate protocol score recommendation
+                        generateProtocolScoreRecommendation(protocol_score);
+
+
+                    } else {
+                        console.error('Error getting WiFi signal strength:', xhrProtocol.statusText);
+                    }
+                }
+            };
+            xhrProtocol.send();
+
+            // Make an AJAX request to the Flask endpoint to get the password score
+            var password_score = 0;
+            var xhrPassword = new XMLHttpRequest();
+            xhrPassword.open('POST', '/get_password_score', true);
+            xhrPassword.setRequestHeader('Content-Type', 'application/json');
+            xhrPassword.onreadystatechange = function() {
+                if (xhrPassword.readyState == XMLHttpRequest.DONE) {
+                    if (xhrPassword.status == 200) {
+                        // Parse the JSON response and store the password score in a variable
+                        password_score = JSON.parse(xhrPassword.responseText).password_score;
+                        secureScore += password_score*2;
+                        // Update the progress label in the HTML
+                        updateProgress(secureScore);
+
+                        // Function to generate recommendation item based on password score
+                        function generatePasswordRecommendation(score) {
+                            var recommendationsDiv = document.getElementById("recommendations");
+                            var itemDiv = document.createElement("div");
+                            itemDiv.className = "recommendation-item";
+
+                            var signSpanRight = document.createElement("span");
+                            signSpanRight.className = "right-sign";
+
+                            var signSpanWarning = document.createElement("span");
+                            signSpanWarning.className = "warning-sign";
+
+                            var signSpanCross = document.createElement("span");
+                            signSpanCross.className = "cross-sign";
+
+                            // Add the appropriate sign and text based on the password score
+                            if (score < 5) {
+                                signSpanCross.innerHTML = "&#10008;"; // Cross sign
+                                itemDiv.appendChild(signSpanCross);
+                                itemDiv.appendChild(document.createTextNode("Your password is weak."));
+                            } else if (score < 7) {
+                                signSpanWarning.innerHTML = "&#x26A0;"; // Warning sign
+                                itemDiv.appendChild(signSpanWarning);
+                                itemDiv.appendChild(document.createTextNode("Your password is moderately strong"));
+                            } else {
+                                signSpanRight.innerHTML = "&#10004;"; // Right sign
+                                itemDiv.appendChild(signSpanRight);
+                                itemDiv.appendChild(document.createTextNode("Congrats! Your password is very strong."));
+                            }
+
+                            recommendationsDiv.appendChild(itemDiv);
+                        }
+
+                        // Call the function to generate password score recommendation
+                        generatePasswordRecommendation(password_score);
+                    } else {
+                        console.error('Error getting password score:', xhrPassword.statusText);
+                    }
+                }
+            };
+            // Get the value from the input field
+            var password = document.getElementById('password-input').value;
+            xhrPassword.send(JSON.stringify({ password: password }));
+            
+            
+            // Make an AJAX request to the Flask endpoint to get the protocol score
+            var xhrFirewall = new XMLHttpRequest();
+            xhrFirewall.open('GET', '/get_firewall_score', true);
+            xhrFirewall.onreadystatechange = function() {
+                if (xhrFirewall.readyState == XMLHttpRequest.DONE) {
+                    if (xhrFirewall.status == 200) {
+                        // Parse the JSON response and store the signal strength in a variable
+                        var firewall_score = JSON.parse(xhrFirewall.responseText).firewall_score;
+                        secureScore += firewall_score * 2;
+                        // Update the progress label in the HTML
+                        updateProgress(secureScore);
+
+                        // Function to generate recommendation item based on isolation score
+                        function generateFirewallRecommendation(score) {
+                            var recommendationsDiv = document.getElementById("recommendations");
+                            var itemDiv = document.createElement("div");
+                            itemDiv.className = "recommendation-item";
+
+                            var signSpanRight = document.createElement("span");
+                            signSpanRight.className = "right-sign";
+
+                            var signSpanCross = document.createElement("span");
+                            signSpanCross.className = "cross-sign";
+
+                            // Add the appropriate sign and text based on the isolation score
+                            if (score === 0) {
+                                signSpanCross.innerHTML = "&#10008;"; // Cross sign
+                                itemDiv.appendChild(signSpanCross);
+                                itemDiv.appendChild(document.createTextNode("Firewall is absent."));
+                            } else if (score === 10) {
+                                signSpanRight.innerHTML = "&#10004;"; // Right sign
+                                itemDiv.appendChild(signSpanRight);
+                                itemDiv.appendChild(document.createTextNode("Congrats! Firewall is present."));
+                            }
+
+                            recommendationsDiv.appendChild(itemDiv);
+                        }
+
+                        // Call the function to generate isolation score recommendation
+                        generateFirewallRecommendation(firewall_score);
+
+
+                        // Function to generate recommendation item based on secure score
+                        function generateSecureScoreRecommendation(score) {
+                            var recommendationsDiv = document.getElementById("recommendations");
+                            var itemDiv = document.createElement("div");
+                            itemDiv.className = "recommendation-item";
+
+                            var signSpanRight = document.createElement("span");
+                            signSpanRight.className = "right-sign";
+
+                            var signSpanCross = document.createElement("span");
+                            signSpanCross.className = "cross-sign";
+
+                            var signSpanWarning = document.createElement("span");
+                            signSpanWarning.className = "warning-sign";
+
+                            var signSpanPower = document.createElement("span");
+                            signSpanPower.className = "power-sign";
+
+                            // Add the appropriate sign and text based on the secure score
+                            if (score < 25) {
+                                signSpanCross.innerHTML = "&#10008;"; // Cross sign
+                                itemDiv.appendChild(signSpanCross);
+                                itemDiv.appendChild(document.createTextNode("Danger! Your network is unsafe."));
+                            } else if (score < 50) {
+                                signSpanWarning.innerHTML = "&#x26A0;"; // Warning sign
+                                itemDiv.appendChild(signSpanWarning);
+                                itemDiv.appendChild(document.createTextNode("Your network is vulnerable."));
+                            } else if (score < 75) {
+                                signSpanPower.innerHTML = "&#9889;"; // power sign
+                                itemDiv.appendChild(signSpanPower);
+                                itemDiv.appendChild(document.createTextNode("Your network is moderately safe."));
+                            } else {
+                                signSpanRight.innerHTML = "&#10004;"; // Right sign
+                                itemDiv.appendChild(signSpanRight);
+                                itemDiv.appendChild(document.createTextNode("Congrats! Your network is safe."));
+                            }
+
+                            recommendationsDiv.appendChild(itemDiv);
+                        }
+
+                        // Call the function to generate secure score recommendation
+                        generateSecureScoreRecommendation(secureScore);
+
+                    } else {
+                        console.error('Error getting WiFi signal strength:', xhrFirewall.statusText);
+                    }
+                }
+            };
+            xhrFirewall.send();
+        }
+
+        // Add event listener to the "Get Score" button
+        document.getElementById('get-score-btn').addEventListener('click', handleButtonClick);
+
+    </script>
+    
+</body>
+</html>
