@@ -53,6 +53,8 @@ Wireless networks face escalating complexity and evolving cyber threats, making 
 
 ## Implementation
 The tool is implemented in Python and utilizes several libraries, including math, collections.Counter, and a generative AI module for advanced analysis. The password analysis algorithm calculates entropy and checks against a dictionary of common passwords to determine password strength.
+<img src="https://github.com/Ibrahim99575/Wireless-Network-Security-Analysis-Tool/blob/477bcb73b20e51bbbe5ddab14b7869a08a3674f2/output_interface.jpg"/>
+
 
 ## Results & Discussions
 This project introduces a novel security score system to help users evaluate the robustness of wireless networks. The findings highlight the critical importance of secure Wi-Fi networks, exemplified by the strong security of certain testbeds compared to insecure public networks. The tool provides a comprehensive assessment and offers actionable insights to improve network security.
@@ -78,21 +80,21 @@ cd wireless-network-security-tool
 
 2. Install required dependencies:
 
-`
+```
 pip install -r requirements.txt
-`
+```
 
 3. Run the tool:
 
-`
-python main.py
-`
+```
+python app.py
+```
 
 ## Usage
 1. Launch the Tool:
-`
-python main.py
-`
+```
+python app.py
+```
 
 2. Enter Wi-Fi Details: Input your Wi-Fi SSID and password.
 
