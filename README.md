@@ -38,8 +38,9 @@ Wireless networks face escalating complexity and evolving cyber threats, making 
 ## Proposed System
 ### System Diagram
 
-<img src="https://github.com/Ibrahim99575/Wireless-Network-Security-Analysis-Tool/blob/a0172ae5859c2ff7b1863f5ad51b0597cfb1d8ec/block_diagram_pages-to-jpg-0001.jpg" width = 500px align = "center"/>
-
+<div align = "center">
+  <img src="https://github.com/Ibrahim99575/Wireless-Network-Security-Analysis-Tool/blob/a0172ae5859c2ff7b1863f5ad51b0597cfb1d8ec/block_diagram_pages-to-jpg-0001.jpg" width = 500px/>
+</div>
 ### Modules
 - #### Protocol Analysis Module: Analyzes wireless network protocols and assesses their security. Provides a protocol score based on the analysis.
 
@@ -54,8 +55,9 @@ Wireless networks face escalating complexity and evolving cyber threats, making 
 ## Implementation
 The tool is implemented in Python and utilizes several libraries, including math, collections.Counter, and a generative AI module for advanced analysis. The password analysis algorithm calculates entropy and checks against a dictionary of common passwords to determine password strength.
 
-<img src="https://github.com/Ibrahim99575/Wireless-Network-Security-Analysis-Tool/blob/477bcb73b20e51bbbe5ddab14b7869a08a3674f2/output_interface.jpg" width = 500px align = "center"/>
-
+<div align = "center">
+  <img src="https://github.com/Ibrahim99575/Wireless-Network-Security-Analysis-Tool/blob/477bcb73b20e51bbbe5ddab14b7869a08a3674f2/output_interface.jpg" width = 500px/>
+</div>
 
 ## Results & Discussions
 This project introduces a novel security score system to help users evaluate the robustness of wireless networks. The findings highlight the critical importance of secure Wi-Fi networks, exemplified by the strong security of certain testbeds compared to insecure public networks. The tool provides a comprehensive assessment and offers actionable insights to improve network security.
