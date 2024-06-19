@@ -41,7 +41,10 @@ Wireless networks face escalating complexity and evolving cyber threats, making 
 <div align = "center">
   <img src="https://github.com/Ibrahim99575/Wireless-Network-Security-Analysis-Tool/blob/a0172ae5859c2ff7b1863f5ad51b0597cfb1d8ec/block_diagram_pages-to-jpg-0001.jpg" width = 500px/>
 </div>
+
+
 ### Modules
+
 - #### Protocol Analysis Module: Analyzes wireless network protocols and assesses their security. Provides a protocol score based on the analysis.
 
 - #### Firewall Detection Module: Detects the presence and effectiveness of network firewalls. Assigns a firewall score based on the findings.
