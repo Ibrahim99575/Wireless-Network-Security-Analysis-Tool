@@ -40,17 +40,17 @@ Wireless networks face escalating complexity and evolving cyber threats, making 
 
 
 ### Modules
-Protocol Analysis Module: Analyzes wireless network protocols and assesses their security.
+- #### Protocol Analysis Module: Analyzes wireless network protocols and assesses their security.
 Provides a protocol score based on the analysis.
 
-Firewall Detection Module: Detects the presence and effectiveness of network firewalls.
+- #### Firewall Detection Module: Detects the presence and effectiveness of network firewalls.
 Assigns a firewall score based on the findings.
 
-Password Analysis Module: Evaluates the strength of Wi-Fi passwords.Uses entropy calculation and common password checks to determine a password score.
+- #### Password Analysis Module: Evaluates the strength of Wi-Fi passwords.Uses entropy calculation and common password checks to determine a password score.
 
-Network Isolation Detection Module: Checks for network isolation measures. Provides a network isolation score.
+- #### Network Isolation Detection Module: Checks for network isolation measures. Provides a network isolation score.
 
-Secure Score Assessment Module: Aggregates scores from all modules to generate a comprehensive secure score.
+- #### Secure Score Assessment Module: Aggregates scores from all modules to generate a comprehensive secure score.
 
 ## Implementation
 The tool is implemented in Python and utilizes several libraries, including math, collections.Counter, and a generative AI module for advanced analysis. The password analysis algorithm calculates entropy and checks against a dictionary of common passwords to determine password strength.
@@ -72,41 +72,41 @@ This project introduces a novel tool for assessing Wi-Fi security, providing an 
 ### Steps
 1. Clone the repository:
 
-''' 
+` 
 git clone https://github.com/yourusername/wireless-network-security-tool.git
 cd wireless-network-security-tool
-'''
+`
 
 2. Install required dependencies:
 
-'''
+`
 pip install -r requirements.txt
 
-'''
+`
 
 3. Run the tool:
 
-'''
+`
 python main.py
-'''
+`
 
 ## Usage
 1. Launch the Tool:
-'''
+`
 python main.py
-'''
+`
 
 2. Enter Wi-Fi Details:
-- Input your Wi-Fi SSID and password.
+  - Input your Wi-Fi SSID and password.
 
 3. Analyze Network:
-- Click on Analyze to start the security assessment.
+  - Click on Analyze to start the security assessment.
 
 4. View Results:
-- The tool will provide a security score and actionable recommendations.
+  - The tool will provide a security score and actionable recommendations.
 
 ## License
-This project is open-source and available under the MIT License.
+This project is open-source and available under the <a href="https://github.com/Ibrahim99575/web-drum-play/blob/fd574d3b7ff978c83c95bece92f8c7ba4486b120/LICENSE/">MIT License</a>.
 For more details and to access the tool, please visit the project repository.
 
 If you have any questions or need further assistance, feel free to contact the project maintainer, Ibrahim Ali, at ibrahim.ali.99575@gmail.com.
