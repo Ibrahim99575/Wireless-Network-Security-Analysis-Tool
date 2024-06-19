@@ -38,7 +38,7 @@ Wireless networks face escalating complexity and evolving cyber threats, making 
 ## Proposed System
 ### System Diagram
 
-<img src="https://github.com/Ibrahim99575/web-drum-play/blob/bc39e933259468ad10ab23f96306e046926f3ba4/UI.png"/>
+<img src="[https://github.com/Ibrahim99575/web-drum-play/blob/bc39e933259468ad10ab23f96306e046926f3ba4/UI.png](https://github.com/Ibrahim99575/Wireless-Network-Security-Analysis-Tool/blob/a0172ae5859c2ff7b1863f5ad51b0597cfb1d8ec/block_diagram_pages-to-jpg-0001.jpg)"/>
 
 ### Modules
 - #### Protocol Analysis Module: Analyzes wireless network protocols and assesses their security. Provides a protocol score based on the analysis.
